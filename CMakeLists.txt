@@ -33,6 +33,6 @@ ExternalProject_Add(
 install(
     CODE
     "execute_process(
-        COMMAND echo \"\n=== Python-${python_version} SETUP FINISHED ===\n\"
+        COMMAND echo \"\n[CMAKE] Python-${python_version} PACKAGE SETUP FINISHED!\n\"
     )"
 )
