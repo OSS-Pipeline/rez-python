@@ -34,12 +34,11 @@ tools = [
     "smtpd.py"
 ]
 
+with scope("config") as config:
+    config.build_thread_count = "logical_cores"
+
 #TODO: Use the SHA1 of the archive instead.
 uuid = "python-2.7.16"
-
-def preprocess():
-    env.CFLAGS.append("-fPIC")
-    env.CXXFLAGS.append("-fPIC")
 
 def commands():
     env.PATH.prepend("{root}/bin")
