@@ -14,6 +14,7 @@ description = \
     """
 
 requires = [
+    "cmake-3+",
     "gcc-6.3.1"
 ]
 

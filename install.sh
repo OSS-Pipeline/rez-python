@@ -20,7 +20,7 @@ echo -e "\n"
 echo -e "[INSTALL] Installing Python-${python_version}..."
 echo -e "\n"
 
-make install
+make -j${REZ_BUILD_THREAD_COUNT} install
 
 echo -e "\n"
 echo -e "[INSTALL] Finished installing Python-${python_version}!"
