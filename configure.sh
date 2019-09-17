@@ -1,8 +1,12 @@
 #!/usr/bin/bash
 
-extract_path=$1
-install_path=$2
-python_version=$3
+# Will exit the Bash script the moment any command will itself exit with a non-zero status, thus an error.
+set -e
+
+EXTRACT_PATH=$1
+BUILD_PATH=$2
+INSTALL_PATH=${REZ_BUILD_INSTALL_PATH}
+PYTHON_VERSION=${REZ_BUILD_PROJECT_VERSION}
 
 # We print the arguments passed to the Bash script
 echo -e "\n"
@@ -11,26 +15,27 @@ echo -e "=== CONFIGURE ==="
 echo -e "================="
 echo -e "\n"
 
-echo -e "[CONFIGURE][ARGS] EXTRACT PATH: ${extract_path}"
-echo -e "[CONFIGURE][ARGS] INSTALL PATH: ${install_path}"
-echo -e "[CONFIGURE][ARGS] PYTHON VERSION: ${python_version}"
+echo -e "[CONFIGURE][ARGS] EXTRACT PATH: ${EXTRACT_PATH}"
+echo -e "[CONFIGURE][ARGS] BUILD PATH: ${BUILD_PATH}"
+echo -e "[CONFIGURE][ARGS] INSTALL PATH: ${INSTALL_PATH}"
+echo -e "[CONFIGURE][ARGS] PYTHON VERSION: ${PYTHON_VERSION}"
 
-cd ${extract_path}
+cd ${EXTRACT_PATH}
 
 # We run the configuration script of Python
 echo -e "\n"
-echo -e "[CONFIGURE] Running the configuration script from Python-${python_version}..."
+echo -e "[CONFIGURE] Running the configuration script from Python-${PYTHON_VERSION}..."
 echo -e "\n"
 
-if [ -d build ]; then
-    cd build
+if [ -d ${BUILD_PATH} ]; then
+    cd ${BUILD_PATH}
 else
-    mkdir build
-    cd build
+    mkdir -p ${BUILD_PATH}
+    cd ${BUILD_PATH}
 
-    ../configure --prefix=${install_path} --enable-ipv6 --enable-unicode=ucs4 --with-ensurepip=install LDFLAGS=-Wl,-rpath,'$$ORIGIN/../lib/'
+    ${EXTRACT_PATH}/configure --prefix=${INSTALL_PATH} --enable-ipv6 --enable-unicode=ucs4 --with-ensurepip=install LDFLAGS=-Wl,-rpath,'$$ORIGIN/../lib/'
 fi
 
 echo -e "\n"
-echo -e "[CONFIGURE] Finished configuring Python-${python_version}!"
+echo -e "[CONFIGURE] Finished configuring Python-${PYTHON_VERSION}!"
 echo -e "\n"
