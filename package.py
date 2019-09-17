@@ -25,6 +25,9 @@ variants = [
 tools = [
     "2to3",
     "idle",
+    "pip",
+    "pip2",
+    "pip2.7",
     "pydoc",
     "python",
     "python2",
