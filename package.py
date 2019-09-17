@@ -1,6 +1,6 @@
 # Based and improved from https://github.com/piratecrew/rez-python
 
-name = "python2"
+name = "python"
 
 version = "2.7.16"
 
@@ -10,7 +10,7 @@ authors = [
 
 description = \
     """
-    The Python 2 programming language.
+    The Python programming language.
     """
 
 requires = [
@@ -42,7 +42,7 @@ with scope("config") as config:
     config.build_thread_count = "logical_cores"
 
 #TODO: Use the SHA1 of the archive instead.
-uuid = "python2-2.7.16"
+uuid = "python-2.7.16"
 
 def commands():
     env.PATH.prepend("{root}/bin")

@@ -1,4 +1,4 @@
-rez-python2
+rez-python
 ===
 
-Rez build configuration for Python 2.x
+Rez build configuration for Python.

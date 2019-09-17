@@ -4,30 +4,30 @@ include(RezBuild)
 include(RezRepository)
 include(ExternalProject)
 
-set(python2_version 2.7.16)
+set(python_version 2.7.16)
 
-# Python2
+# Python
 rez_set_archive(
-    python2_url python2/Python-${python2_version}.tgz
+    python_url python/Python-${python_version}.tgz
     https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tgz
 )
 
 # The environment variable REZ_TMP_PATH is meant to point to a location such as "/tmp/rez".
-set(EXTRACT_DIR $ENV{REZ_TMP_PATH}/python2/${python2_version})
+set(EXTRACT_DIR $ENV{REZ_TMP_PATH}/python/${python_version})
 set(BUILD_DIR ${EXTRACT_DIR}/build)
 
-# We configure/build/install Python2 through the ExternalProject_Add macro,
+# We configure/build/install Python through the ExternalProject_Add macro,
 # using three different shell scripts for each of these steps.
 # If necessary, it is possible to skip one of these steps by replacing the command
 # by "", an empty string.
 ExternalProject_Add(
-    build_python2
-    URL ${python2_url}
-    PREFIX python2
+    build_python
+    URL ${python_url}
+    PREFIX python
     SOURCE_DIR ${EXTRACT_DIR}
-    CONFIGURE_COMMAND bash ${CMAKE_SOURCE_DIR}/configure.sh ${EXTRACT_DIR} ${CMAKE_INSTALL_PREFIX} ${python2_version}
-    BUILD_COMMAND bash ${CMAKE_SOURCE_DIR}/build.sh ${BUILD_DIR} ${python2_version}
-    INSTALL_COMMAND bash ${CMAKE_SOURCE_DIR}/install.sh ${BUILD_DIR} ${python2_version}
+    CONFIGURE_COMMAND bash ${CMAKE_SOURCE_DIR}/configure.sh ${EXTRACT_DIR} ${CMAKE_INSTALL_PREFIX} ${python_version}
+    BUILD_COMMAND bash ${CMAKE_SOURCE_DIR}/build.sh ${BUILD_DIR} ${python_version}
+    INSTALL_COMMAND bash ${CMAKE_SOURCE_DIR}/install.sh ${BUILD_DIR} ${python_version}
 )
 
 # We use a bogus CMake "install" step in order to be able to properly finish
@@ -35,6 +35,6 @@ ExternalProject_Add(
 install(
     CODE
     "execute_process(
-        COMMAND echo \"\n[CMAKE] Python2-${python2_version} PACKAGE SETUP FINISHED!\n\"
+        COMMAND echo \"\n[CMAKE] Python-${python_version} PACKAGE SETUP FINISHED!\n\"
     )"
 )

@@ -2,7 +2,7 @@
 
 extract_path=$1
 install_path=$2
-python2_version=$3
+python_version=$3
 
 # We print the arguments passed to the Bash script
 echo -e "\n"
@@ -13,13 +13,13 @@ echo -e "\n"
 
 echo -e "[CONFIGURE][ARGS] EXTRACT PATH: ${extract_path}"
 echo -e "[CONFIGURE][ARGS] INSTALL PATH: ${install_path}"
-echo -e "[CONFIGURE][ARGS] PYTHON2 VERSION: ${python2_version}"
+echo -e "[CONFIGURE][ARGS] PYTHON VERSION: ${python_version}"
 
 cd ${extract_path}
 
-# We run the configuration script of Python2
+# We run the configuration script of Python
 echo -e "\n"
-echo -e "[CONFIGURE] Running the configuration script from Python2-${python2_version}..."
+echo -e "[CONFIGURE] Running the configuration script from Python-${python_version}..."
 echo -e "\n"
 
 if [ -d build ]; then
@@ -32,5 +32,5 @@ else
 fi
 
 echo -e "\n"
-echo -e "[CONFIGURE] Finished configuring Python2-${python2_version}!"
+echo -e "[CONFIGURE] Finished configuring Python-${python_version}!"
 echo -e "\n"
