@@ -7,7 +7,7 @@ include(ExternalProject)
 # Python
 rez_set_archive(
     PYTHON_URL python/Python-${REZ_BUILD_PROJECT_VERSION}.tgz
-    https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tgz
+    https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 )
 
 # The environment variable REZ_TMP_PATH is meant to point to a location such as "/tmp/rez".

@@ -2,7 +2,7 @@
 
 name = "python"
 
-version = "2.7.16"
+version = "3.7.4"
 
 authors = [
     "Guido van Rossum"
@@ -24,18 +24,21 @@ variants = [
 
 tools = [
     "2to3",
-    "idle",
-    "pip",
-    "pip2",
-    "pip2.7",
-    "pydoc",
-    "python",
-    "python2",
-    "python2.7",
-    "python2.7-config",
-    "python2-config",
-    "python-config",
-    "smtpd.py"
+    "2to3-3.7",
+    "idle3",
+    "idle3.7",
+    "pip3",
+    "pip3.7",
+    "pydoc3",
+    "pydoc3.7",
+    "python3",
+    "python3.7",
+    "python3.7-config",
+    "python3.7m",
+    "python3.7m-config",
+    "python3-config",
+    "pyenv",
+    "pyenv-3.7"
 ]
 
 build_system = "cmake"
@@ -44,7 +47,7 @@ with scope("config") as config:
     config.build_thread_count = "logical_cores"
 
 #TODO: Use the SHA1 of the archive instead.
-uuid = "python-2.7.16"
+uuid = "python-3.7.4"
 
 def commands():
     env.PATH.prepend("{root}/bin")
