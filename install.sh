@@ -6,7 +6,7 @@ set -e
 BUILD_PATH=$1
 PYTHON_VERSION=${REZ_BUILD_PROJECT_VERSION}
 
-# We print the arguments passed to the Bash script
+# We print the arguments passed to the Bash script.
 echo -e "\n"
 echo -e "==============="
 echo -e "=== INSTALL ==="
@@ -18,7 +18,7 @@ echo -e "[INSTALL][ARGS] PYTHON VERSION: ${PYTHON_VERSION}"
 
 cd ${BUILD_PATH}
 
-# We install Python
+# We install Python.
 echo -e "\n"
 echo -e "[INSTALL] Installing Python-${PYTHON_VERSION}..."
 echo -e "\n"
