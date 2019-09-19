@@ -8,7 +8,7 @@ BUILD_PATH=$2
 INSTALL_PATH=${REZ_BUILD_INSTALL_PATH}
 PYTHON_VERSION=${REZ_BUILD_PROJECT_VERSION}
 
-# We print the arguments passed to the Bash script
+# We print the arguments passed to the Bash script.
 echo -e "\n"
 echo -e "================="
 echo -e "=== CONFIGURE ==="
@@ -20,9 +20,7 @@ echo -e "[CONFIGURE][ARGS] BUILD PATH: ${BUILD_PATH}"
 echo -e "[CONFIGURE][ARGS] INSTALL PATH: ${INSTALL_PATH}"
 echo -e "[CONFIGURE][ARGS] PYTHON VERSION: ${PYTHON_VERSION}"
 
-cd ${EXTRACT_PATH}
-
-# We run the configuration script of Python
+# We run the configuration script of Python.
 echo -e "\n"
 echo -e "[CONFIGURE] Running the configuration script from Python-${PYTHON_VERSION}..."
 echo -e "\n"
