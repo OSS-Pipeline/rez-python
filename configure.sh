@@ -31,7 +31,7 @@ else
     mkdir -p ${BUILD_PATH}
     cd ${BUILD_PATH}
 
-    ${EXTRACT_PATH}/configure --prefix=${INSTALL_PATH} --enable-ipv6 --enable-unicode=ucs4 --with-ensurepip=install LDFLAGS=-Wl,-rpath,'$$ORIGIN/../lib/'
+    ${EXTRACT_PATH}/configure --prefix=${INSTALL_PATH} --enable-ipv6 --enable-unicode=ucs4 --with-ensurepip=install CFLAGS=-fPIC CXXFLAGS=-fPIC
 fi
 
 echo -e "\n"
