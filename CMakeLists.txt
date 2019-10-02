@@ -7,7 +7,7 @@ include(ExternalProject)
 # Python
 rez_set_archive(
     PYTHON_URL python/Python-${REZ_BUILD_PROJECT_VERSION}.tgz
-    https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tgz
+    https://www.python.org/ftp/python/${REZ_BUILD_PROJECT_VERSION}/Python-${REZ_BUILD_PROJECT_VERSION}.tgz
 )
 
 # The environment variable REZ_TMP_PATH is meant to point to a location such as "/tmp/rez".
@@ -19,10 +19,12 @@ set(BUILD_DIR ${EXTRACT_DIR}/build)
 # If necessary, it is possible to skip one of these steps by replacing the command
 # by "", an empty string.
 ExternalProject_Add(
-    BUILD_PYTHON
+    REZ_PYTHON
     URL ${PYTHON_URL}
     PREFIX python
     SOURCE_DIR ${EXTRACT_DIR}
+    PATCH_COMMAND ""
+    UPDATE_COMMAND ""
     CONFIGURE_COMMAND bash ${CMAKE_SOURCE_DIR}/configure.sh ${EXTRACT_DIR} ${BUILD_DIR}
     BUILD_COMMAND bash ${CMAKE_SOURCE_DIR}/build.sh ${BUILD_DIR}
     INSTALL_COMMAND bash ${CMAKE_SOURCE_DIR}/install.sh ${BUILD_DIR}

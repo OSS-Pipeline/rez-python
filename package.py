@@ -14,8 +14,8 @@ description = \
     """
 
 requires = [
-    "cmake-3",
-    "gcc-6"
+    "cmake-3+",
+    "gcc-6+"
 ]
 
 variants = [
@@ -43,9 +43,13 @@ build_system = "cmake"
 with scope("config") as config:
     config.build_thread_count = "logical_cores"
 
-#TODO: Use the SHA1 of the archive instead.
-uuid = "python-2.7.16"
+uuid = "python-{version}".format(version=str(version))
 
 def commands():
     env.PATH.prepend("{root}/bin")
     env.LD_LIBRARY_PATH.prepend("{root}/lib")
+
+    # Helper environment variables.
+    env.PYTHON_BINARY_PATH.set("{root}/bin")
+    env.PYTHON_INCLUDE_PATH.set("{root}/include")
+    env.PYTHON_LIBRARY_PATH.set("{root}/lib")
