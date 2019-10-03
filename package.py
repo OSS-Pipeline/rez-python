@@ -26,15 +26,15 @@ tools = [
     "2to3",
     "idle",
     "pip",
-    "pip2",
     "pip2.7",
+    "pip2",
     "pydoc",
-    "python",
-    "python2",
-    "python2.7",
-    "python2.7-config",
-    "python2-config",
     "python-config",
+    "python",
+    "python2-config",
+    "python2.7-config",
+    "python2.7",
+    "python2",
     "smtpd.py"
 ]
 

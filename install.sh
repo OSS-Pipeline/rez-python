@@ -33,7 +33,9 @@ echo -e "\n"
 
 cd ${BUILD_PATH}
 
-make -j${REZ_BUILD_THREAD_COUNT} install
+make \
+    -j${REZ_BUILD_THREAD_COUNT} \
+    install
 
 echo -e "\n"
 echo -e "[INSTALL] Finished installing Python-${PYTHON_VERSION}!"

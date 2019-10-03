@@ -38,7 +38,13 @@ echo -e "\n"
 mkdir -p ${BUILD_PATH}
 cd ${BUILD_PATH}
 
-${EXTRACT_PATH}/configure --prefix=${INSTALL_PATH} --enable-ipv6 --enable-unicode=ucs4 --with-ensurepip=install CFLAGS=-fPIC CXXFLAGS=-fPIC
+${EXTRACT_PATH}/configure \
+    --prefix=${INSTALL_PATH} \
+    --enable-ipv6 \
+    --enable-unicode=ucs4 \
+    --with-ensurepip=install \
+    CFLAGS=-fPIC \
+    CXXFLAGS=-fPIC
 
 echo -e "\n"
 echo -e "[CONFIGURE] Finished configuring Python-${PYTHON_VERSION}!"
