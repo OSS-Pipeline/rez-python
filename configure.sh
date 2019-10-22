@@ -40,11 +40,11 @@ cd ${BUILD_PATH}
 
 ${EXTRACT_PATH}/configure \
     --prefix=${INSTALL_PATH} \
+    CFLAGS="-fPIC" \
+    CXXFLAGS="-fPIC" \
     --enable-ipv6 \
     --enable-unicode=ucs4 \
-    --with-ensurepip=install \
-    CFLAGS=-fPIC \
-    CXXFLAGS=-fPIC
+    --with-ensurepip=install
 
 echo -e "\n"
 echo -e "[CONFIGURE] Finished configuring Python-${PYTHON_VERSION}!"
