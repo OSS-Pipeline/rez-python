@@ -2,48 +2,42 @@
 
 name = "python"
 
-version = "2.7.16"
+version = "3.10.13"
 
-authors = [
-    "Guido van Rossum"
-]
-
-description = \
-    """
+description = """
     The Python programming language.
     """
 
+authors = [
+    "Guido van Rossum",
+]
+
 requires = [
-    "cmake-3+",
-    "gcc-6+"
+    "cmake-3",
+    "gcc-4.8+",
 ]
 
 variants = [
-    ["platform-linux"]
+    [
+        "platform-linux",
+    ],
 ]
 
 tools = [
     "2to3",
     "idle",
-    "pip",
-    "pip2.7",
-    "pip2",
-    "pydoc",
-    "python-config",
-    "python",
-    "python2-config",
-    "python2.7-config",
-    "python2.7",
-    "python2",
-    "smtpd.py"
+    "pip3",
+    "pydoc3",
+    "python3",
+    "python3-config",
 ]
 
 build_system = "cmake"
 
+
 with scope("config") as config:
     config.build_thread_count = "logical_cores"
 
-uuid = "python-{version}".format(version=str(version))
 
 def commands():
     env.PATH.prepend("{root}/bin")
